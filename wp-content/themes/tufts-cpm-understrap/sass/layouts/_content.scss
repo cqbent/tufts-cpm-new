@@ -1,0 +1,26 @@
+/* content section styling */
+#content {
+  padding: 40px 15px;
+  font-size: 1.3rem;
+  article {
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .content-list {
+    article {
+      border-bottom: 1px $blue solid;
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+    }
+    .entry-title {
+      margin: 0;
+      a {
+        color: $blue;
+      }
+    }
+
+  }
+
+}

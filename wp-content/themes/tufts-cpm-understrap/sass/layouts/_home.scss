@@ -1,0 +1,90 @@
+/* Home page styling */
+.home {
+  .home-header {
+    background-color: $dark-gray;
+    color: $white;
+    text-align: center;
+    font-size: 1.25rem;
+    .container {
+      height: 450px;
+      padding: 40px;
+      position: relative;
+      max-width: 780px !important;
+    }
+    .intro-text {
+      position: relative;
+      z-index: 1;
+    }
+    img.graph {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+    }
+    @include media-breakpoint-up(sm) {
+      font-size: 1.5rem;
+    }
+    @include media-breakpoint-up(md) {
+      font-size: 1.75rem;
+    }
+  }
+  .cpm-links {
+    background-color: $green;
+    color: $white;
+    padding: 20px;
+    text-align: center;
+    a {
+      color: $white;
+    }
+    .row {
+      font-family: $avro;
+
+      div {
+        padding: 10px;
+        div:not(:last-child) {
+          border-bottom: 1px $white dashed;
+        }
+      }
+      @include media-breakpoint-up(sm) {
+        div {
+          border: none;
+        }
+        div:nth-child(odd) {
+          border-right: 1px $white dashed;
+        }
+      }
+      @include media-breakpoint-up(md) {
+        div {
+          border: none;
+        }
+        div:not(:last-child) {
+          border-right: 1px $white dashed;
+        }
+      }
+    }
+  }
+  .feature-content {
+    padding: 40px;
+    background: $beige;
+  }
+  .feature-publications {
+    padding-bottom: 20px;
+    article {
+      padding: 0 15px;
+      margin: 0;
+      flex: 1;
+      border: none;
+      h4 {
+        font-size: 1rem;
+        font-weight: 700;
+        margin: 0;
+      }
+      div {
+        display: inline;
+      }
+    }
+
+
+  }
+
+}

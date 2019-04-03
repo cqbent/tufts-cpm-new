@@ -1,0 +1,66 @@
+/* registry list and detail styling */
+
+// registry page styling
+.registry {
+  #content {
+    max-width: 1200px !important;
+  }
+}
+.registry, .single-cpm-registry {
+  // facet filter styling
+  .facetwp-type-fselect {
+    font-size: .875rem;
+    .fs-label-wrap {
+      background: $blue;
+      border-radius: 10px;
+      padding: 3px 5px;
+      color: $white;
+      text-align: center;
+      font-weight: 700;
+    }
+    .fs-arrow {
+      border-top-color: $white;
+    }
+    .fs-wrap {
+      width: 100%;
+    }
+    .fs-dropdown {
+      font-size: .75rem;
+      width: 100%;
+      position: relative;
+      .fs-options {
+        max-height: 100%;
+      }
+    }
+    .facetwp-active & {
+
+    }
+  }
+  #content {
+    font-size: .875rem;
+    table {
+      thead {
+        th {
+          white-space: nowrap;
+          border: none;
+          padding: .5rem;
+        }
+      }
+      tbody {
+        td {
+          border: none;
+          padding: .5rem;
+        }
+        tr:nth-child(odd) {
+          background: rgba($green, .1);
+        }
+      }
+    }
+  }
+  @include media-breakpoint-up(lg) {
+    #content, .facetwp-type-fselect {
+      font-size: 1rem;
+    }
+
+  }
+}
