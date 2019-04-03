@@ -18,28 +18,24 @@ get_header();
     <div class="cpm-links">
       <div class="container">
         <div class="row">
-          <div class="column col-sm-6 col-md-3">
+          <div class="column registry col-sm-6 col-md-3">
             <a href="/registry">
-              <img src="<?php print get_stylesheet_directory_uri(); ?>/images/icon_cpm_registry.svg" alt="cpm registry" />
               <div>CPM Registry</div>
             </a>
 
           </div>
-          <div class="column col-sm-6 col-md-3">
+          <div class="column dataviz  col-sm-6 col-md-3">
             <a href="/data-visualization">
-              <img src="<?php print get_stylesheet_directory_uri(); ?>/images/icon_dataviz.svg" alt="data visualization" />
               <div>Data Visualization</div>
             </a>
           </div>
-          <div class="column col-sm-6 col-md-3">
+          <div class="column publications col-sm-6 col-md-3">
             <a href="/publications">
-              <img src="<?php print get_stylesheet_directory_uri(); ?>/images/icon_publications.svg" alt="publications" />
               <div>Publications</div>
             </a>
           </div>
-          <div class="column col-sm-6 col-md-3">
+          <div class="column resources col-sm-6 col-md-3">
             <a href="/resources">
-              <img src="<?php print get_stylesheet_directory_uri(); ?>/images/icon_resources.svg" alt="resources" />
               <div>Resources</div>
             </a>
           </div>
@@ -50,7 +46,7 @@ get_header();
       <div class="container">
         <div class="row">
           <div class="col-md-8 feature-publications">
-            <h4>Featured Publications <a href="/publications">go to publications ></a></h4>
+            <h4><a href="/publications">Featured Publications <span>go to publications >></span></a></h4>
             <div class="row">
               <?php publications(2); ?>
             </div>

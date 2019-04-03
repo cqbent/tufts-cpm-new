@@ -38,26 +38,65 @@
     }
     .row {
       font-family: $avro;
-
-      div {
+      div.column {
         padding: 10px;
         div:not(:last-child) {
           border-bottom: 1px $white dashed;
         }
+        a:before {
+          content: "";
+          height: 100px;
+          width: 100px;
+          display: inline-block;
+          background-size: cover;
+          background-image: url(../images/icon_cpm_registry.svg);
+        }
+        &.registry a {
+          &:before {
+            background-image: url(../images/icon_cpm_registry.svg);
+          }
+          &:hover::before {
+            background-image: url(../images/icon_cpm_registry_on.svg);
+          }
+        }
+        &.dataviz a {
+          &:before {
+            background-image: url(../images/icon_dataviz.svg);
+          }
+          &:hover::before {
+            background-image: url(../images/icon_dataviz_on.svg);
+          }
+        }
+        &.publications a {
+          &:before {
+            background-image: url(../images/icon_publications.svg);
+          }
+          &:hover::before {
+            background-image: url(../images/icon_publications_on.svg);
+          }
+        }
+        &.resources a {
+          &:before {
+            background-image: url(../images/icon_resources.svg);
+          }
+          &:hover::before {
+            background-image: url(../images/icon_resources_on.svg);
+          }
+        }
       }
       @include media-breakpoint-up(sm) {
-        div {
+        div.column {
           border: none;
         }
-        div:nth-child(odd) {
+        div.column:nth-child(odd) {
           border-right: 1px $white dashed;
         }
       }
       @include media-breakpoint-up(md) {
-        div {
+        div.column {
           border: none;
         }
-        div:not(:last-child) {
+        div.column:not(:last-child) {
           border-right: 1px $white dashed;
         }
       }
@@ -66,6 +105,14 @@
   .feature-content {
     padding: 40px;
     background: $beige;
+    h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      span {
+        font-size: .75rem;
+        font-weight: normal;
+      }
+    }
   }
   .feature-publications {
     padding-bottom: 20px;
@@ -75,8 +122,6 @@
       flex: 1;
       border: none;
       h4 {
-        font-size: 1rem;
-        font-weight: 700;
         margin: 0;
       }
       div {
