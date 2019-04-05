@@ -21,17 +21,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<div class="row">
       <div class="column col-sm-4 col-md-3">
-        <a href="#"><img src="<?php print get_stylesheet_directory_uri(); ?>/images/logo_footer_tufts.svg" alt="tufts medical center" class="tufts-logo" /></a>
+        <a href="https://www.tuftsmedicalcenter.org" target="_blank"><img src="<?php print get_stylesheet_directory_uri(); ?>/images/logo_footer_tufts.svg" alt="tufts medical center" class="tufts-logo" /></a>
       </div>
       <div class="column col-sm-4 col-md-3">
-        <a href="#"><img src="<?php print get_stylesheet_directory_uri(); ?>/images/pace_logo.svg" alt="Tufts PACE" class="pace-logo" /></a>
+        <a href="https://www.tuftsmedicalcenter.org/Research-Clinical-Trials/Institutes-Centers-Labs/Institute-for-Clinical-Research-and-Health-Policy-Studies/Research-Programs/Center-for-Predictive-Analytics-and-Comparative-Effectivness" target="_blank"><img src="<?php print get_stylesheet_directory_uri(); ?>/images/pace_logo.svg" alt="Tufts PACE" class="pace-logo" /></a>
       </div>
       <div class="column col-sm-4 col-md-6 footer-links">
         <div class="contact">
           <a class="contact btn" href="/contact">Contact Us</a>
         </div>
         <div class="social">
-          <a href="#" class="twitter-link" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+          <a href="https://twitter.com/tufts_pace?lang=en" class="twitter-link" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
         </div>
       </div>
 		</div><!-- row end -->

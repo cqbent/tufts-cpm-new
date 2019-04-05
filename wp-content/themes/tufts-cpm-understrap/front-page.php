@@ -45,17 +45,16 @@ get_header();
     <div class="feature-content">
       <div class="container">
         <div class="row">
-          <div class="col-md-8 feature-publications">
+          <div class="col-md-6 feature-publications">
             <h4><a href="/publications">Featured Publications <span>go to publications >></span></a></h4>
-            <div class="row">
               <?php publications(2); ?>
-            </div>
           </div>
-          <div class="col-md-4">
-            <h4>Updates</h4>
-            <div>
-              Lorem ipsum dolor sit amet Consectetuer adipielit, sed diam non ummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-            </div>
+          <div class="col-md-6 news">
+            <h4><a href="/news">News</a></h4>
+            <ul>
+	            <?php print feature_news(); ?>
+            </ul>
+
           </div>
         </div>
       </div>

@@ -16,4 +16,3 @@ include_once('post-types/cpm-registry.php');
 include_once('post-types/dataviz.php');
 include_once('post-types/publication.php');
 include_once('taxonomies/mesh-terms.php');
-
