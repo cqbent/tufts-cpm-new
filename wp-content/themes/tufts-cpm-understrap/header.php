@@ -35,23 +35,9 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 			<div class="container big">
 
-					<!-- Your site title as branding in the menu -->
-					<?php if ( ! has_custom_logo() ) { ?>
-
-						<?php if ( is_front_page() && is_home() ) : ?>
-
-							<h1 class="navbar-brand mb-0"><a rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" itemprop="url"><?php bloginfo( 'name' ); ?></a></h1>
-
-						<?php else : ?>
-
-							<a class="navbar-brand" rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" itemprop="url"><?php bloginfo( 'name' ); ?></a>
-
-						<?php endif; ?>
-
-
-					<?php } else {
-						the_custom_logo();
-					} ?><!-- end custom logo -->
+        <a class="navbar-brand" rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" itemprop="url">
+          <img src="<?php echo esc_url( home_url( '/' ) ); ?>wp-content/themes/tufts-cpm-understrap/images/tufts_cpm_logo.svg" class="img-fluid" alt="Tufts PACE CPM Registry" itemprop="logo">
+        </a>
 
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="<?php esc_attr_e( 'Toggle navigation', 'understrap' ); ?>">
 					<span class="navbar-toggler-icon"></span>
@@ -73,14 +59,14 @@ $container = get_theme_mod( 'understrap_container_type' );
 
         <div class="toplinks">
           <div class="contact">
-            <a class="contact btn" href="/contact">Contact Us</a>
+            <a class="contact btn" href="<?php echo esc_url( home_url( '/' ) ); ?>contact">Contact Us</a>
           </div>
           <div class="social">
             <a href="#" class="twitter-link" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
           </div>
         </div>
         <div class="tmc-logo">
-          <a href="#"><img src="<?php print get_stylesheet_directory_uri(); ?>/images/logo_header_tufts.svg" alt="tufts medical center" /></a>
+          <a href="https://www.tuftsmedicalcenter.org" target="_blank"><img src="<?php print get_stylesheet_directory_uri(); ?>/images/logo_header_tufts.svg" alt="tufts medical center" /></a>
         </div>
 
 			</div><!-- .container -->

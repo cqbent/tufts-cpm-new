@@ -4,12 +4,20 @@
     background-color: $dark-gray;
     color: $white;
     text-align: center;
-    font-size: 1.25rem;
+    font-size: 1rem;
     .container {
       height: 450px;
       padding: 40px;
       position: relative;
       max-width: 780px !important;
+
+    }
+    h1.title {
+      font-size: 1rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      position: relative;
+      z-index: 1;
     }
     .intro-text {
       position: relative;
@@ -22,10 +30,10 @@
       width: 100%;
     }
     @include media-breakpoint-up(sm) {
-      font-size: 1.5rem;
+      font-size: 1.25rem;
     }
     @include media-breakpoint-up(md) {
-      font-size: 1.75rem;
+      //font-size: 1.75rem;
     }
   }
   .cpm-links {

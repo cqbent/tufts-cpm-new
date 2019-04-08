@@ -3,7 +3,7 @@ header.header {
     z-index: 1;
   }
   .bg-primary {
-    background-color: $blue;
+    background-color: rgba($blue, 0.85) !important;
   }
   nav {
     #main-menu {
@@ -17,6 +17,11 @@ header.header {
     > .container {
       position: relative;
       align-items: flex-end;
+    }
+    .navbar-brand {
+      img {
+        width: 210px;
+      }
     }
     .navbar-nav {
       li.menu-item {

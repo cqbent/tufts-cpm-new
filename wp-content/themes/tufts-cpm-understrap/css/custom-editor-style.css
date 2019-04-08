@@ -9429,7 +9429,7 @@ header.header .container {
   z-index: 1; }
 
 header.header .bg-primary {
-  background-color: #0081C9; }
+  background-color: rgba(0, 129, 201, 0.85) !important; }
 
 header.header nav #main-menu .nav-link {
   color: #fff; }
@@ -9439,6 +9439,8 @@ header.header .navbar {
   header.header .navbar > .container {
     position: relative;
     align-items: flex-end; }
+  header.header .navbar .navbar-brand img {
+    width: 210px; }
   header.header .navbar .navbar-nav li.menu-item {
     border-bottom: 1px #fff solid;
     padding: 5px 0; }
@@ -9593,12 +9595,18 @@ footer.footer {
   background-color: #153C49;
   color: #fff;
   text-align: center;
-  font-size: 1.25rem; }
+  font-size: 1rem; }
   .home .home-header .container {
     height: 450px;
     padding: 40px;
     position: relative;
     max-width: 780px !important; }
+  .home .home-header h1.title {
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    position: relative;
+    z-index: 1; }
   .home .home-header .intro-text {
     position: relative;
     z-index: 1; }
@@ -9609,10 +9617,7 @@ footer.footer {
     width: 100%; }
   @media (min-width: 576px) {
     .home .home-header {
-      font-size: 1.5rem; } }
-  @media (min-width: 768px) {
-    .home .home-header {
-      font-size: 1.75rem; } }
+      font-size: 1.25rem; } }
 
 .home .cpm-links {
   background-color: #69B1C4;

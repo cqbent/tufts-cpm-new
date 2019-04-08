@@ -9,6 +9,7 @@ get_header();
 <?php while ( have_posts() ) : the_post(); ?>
   <div class="banner home-header">
     <div class="container">
+      <h1 class="title"><?php print the_title(); ?></h1>
       <div class="intro-text"><?php the_content(); ?></div>
       <img class="graph" src="<?php print get_stylesheet_directory_uri(); ?>/images/homepage_hero_graph.svg" alt="tufts pace cpm graph" />
     </div>
@@ -19,18 +20,18 @@ get_header();
       <div class="container">
         <div class="row">
           <div class="column registry col-sm-6 col-md-3">
-            <a href="/registry">
+            <a href="<?php echo esc_url( home_url( '/' ) ); ?>registry">
               <div>CPM Registry</div>
             </a>
 
           </div>
           <div class="column dataviz  col-sm-6 col-md-3">
-            <a href="/data-visualization">
+            <a href="<?php echo esc_url( home_url( '/' ) ); ?>data-visualization">
               <div>Data Visualization</div>
             </a>
           </div>
           <div class="column publications col-sm-6 col-md-3">
-            <a href="/publications">
+            <a href="<?php echo esc_url( home_url( '/' ) ); ?>publications">
               <div>Publications</div>
             </a>
           </div>
@@ -46,11 +47,11 @@ get_header();
       <div class="container">
         <div class="row">
           <div class="col-md-6 feature-publications">
-            <h4><a href="/publications">Featured Publications <span>go to publications >></span></a></h4>
+            <h4><a href="<?php echo esc_url( home_url( '/' ) ); ?>publications">Featured Publications <span>go to publications >></span></a></h4>
               <?php publications(2); ?>
           </div>
           <div class="col-md-6 news">
-            <h4><a href="/news">News</a></h4>
+            <h4><a href="<?php echo esc_url( home_url( '/' ) ); ?>news">News</a></h4>
             <ul>
 	            <?php print feature_news(); ?>
             </ul>

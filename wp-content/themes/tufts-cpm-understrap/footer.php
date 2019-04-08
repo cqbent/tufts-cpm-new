@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
       </div>
       <div class="column col-sm-4 col-md-6 footer-links">
         <div class="contact">
-          <a class="contact btn" href="/contact">Contact Us</a>
+          <a class="contact btn" href="<?php echo esc_url( home_url( '/' ) ); ?>contact">Contact Us</a>
         </div>
         <div class="social">
           <a href="https://twitter.com/tufts_pace?lang=en" class="twitter-link" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
