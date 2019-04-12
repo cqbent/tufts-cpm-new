@@ -58,11 +58,11 @@ $container = get_theme_mod( 'understrap_container_type' );
 				); ?>
 
         <div class="toplinks">
+          <div class="social">
+            <a href="https://twitter.com/tufts_pace?lang=en" class="twitter-link" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+          </div>
           <div class="contact">
             <a class="contact btn" href="<?php echo esc_url( home_url( '/' ) ); ?>contact">Contact Us</a>
-          </div>
-          <div class="social">
-            <a href="#" class="twitter-link" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
           </div>
         </div>
         <div class="tmc-logo">

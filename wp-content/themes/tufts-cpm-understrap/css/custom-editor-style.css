@@ -9458,7 +9458,7 @@ header.header .toplinks {
   display: none;
   position: absolute;
   top: 0;
-  right: 200px;
+  right: 100px;
   width: auto;
   color: #fff; }
   header.header .toplinks a {
@@ -9536,7 +9536,7 @@ footer.footer {
 /* content section styling */
 #content {
   padding: 40px 15px;
-  font-size: 1.3rem; }
+  font-size: 1.1rem; }
   #content article {
     border: none;
     padding: 0;
@@ -9595,7 +9595,7 @@ footer.footer {
   background-color: #153C49;
   color: #fff;
   text-align: center;
-  font-size: 1rem; }
+  font-size: .875rem; }
   .home .home-header .container {
     height: 450px;
     padding: 40px;

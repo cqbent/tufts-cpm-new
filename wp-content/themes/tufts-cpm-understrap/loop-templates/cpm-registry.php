@@ -4,6 +4,11 @@ if ($query->have_posts()) {
 
   <div class="row">
     <div class="col-md-3">
+      <h3>Basic Search</h3>
+      <p>Search all fields of the CPM Registry</p>
+      <div class="filter-search">
+	      <?php print do_shortcode('[facetwp facet="basic_search"]'); ?>
+      </div>
       <h3>Filter By:</h3>
       <div class="filter-type">
         <?php print do_shortcode('[facetwp facet="index_condition"]'); ?>
