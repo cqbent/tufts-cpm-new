@@ -23,7 +23,7 @@ function dataviz_init() {
 		'show_in_nav_menus' => true,
 		'supports'          => array( 'title', 'editor', 'custom-fields', 'thumbnail' ),
 		'has_archive'       => false,
-		'rewrite'           => array( 'slug' => 'data-visualization', 'with_front' => TRUE ),
+		'rewrite'           => array( 'slug' => 'data-visualization', 'with_front' => false ),
 		'query_var'         => true,
 		'menu_icon'         => 'dashicons-chart-bar',
 		'show_in_rest'      => true,

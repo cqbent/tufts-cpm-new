@@ -23,7 +23,7 @@ function cpm_registry_init() {
 		'show_in_nav_menus' => true,
 		'supports'          => array( 'title', 'editor', 'custom-fields' ),
 		'has_archive'       => false,
-		'rewrite'           => array( 'slug' => 'registry', 'with_front' => TRUE ),
+		'rewrite'           => array( 'slug' => 'registry', 'with_front' => false ),
 		'query_var'         => true,
 		'menu_icon'         => 'dashicons-list-view',
 		'show_in_rest'      => true,

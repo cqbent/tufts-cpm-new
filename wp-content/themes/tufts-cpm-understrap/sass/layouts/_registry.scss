@@ -1,12 +1,12 @@
 /* registry list and detail styling */
 
 // registry page styling
-.registry {
+.registry, .registry-advanced {
   #content {
     max-width: 1200px !important;
   }
 }
-.registry, .single-cpm-registry {
+.registry, .single-cpm-registry, .registry-advanced {
   // facet filter styling
   .facetwp-type-fselect {
     font-size: .875rem;
@@ -44,6 +44,9 @@
           white-space: nowrap;
           border: none;
           padding: .5rem;
+          &:first-child {
+            min-width: 100px;
+          }
         }
       }
       tbody {
@@ -62,5 +65,21 @@
       font-size: 1rem;
     }
 
+  }
+}
+
+.advanced-search {
+  margin-bottom: 20px;
+  .row {
+    font-size: .875rem;
+    max-width: 500px;
+    .text-filter {
+      input {
+        width: 100%;
+      }
+    }
+  }
+  .btn {
+    margin-top: 20px;
   }
 }

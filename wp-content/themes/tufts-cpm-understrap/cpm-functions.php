@@ -138,3 +138,78 @@ function feature_news() {
 	}
 	return $result;
 }
+
+function cpm_advanced_search() {
+	// build query
+	$query = '';
+	$filter_rows = array();
+	parse_str($_SERVER["QUERY_STRING"], $query_array);
+	$meta_query = array();
+	$search_query = '';
+	$error_msg = '';
+	$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+
+	/*
+	 * for each row set each field
+	 */
+	if ($query_array) {
+		for ($x = 0; $x < 4; $x++) {
+			// get filter values
+			$compare_filter = $query_array['compare_filter_'.$x];
+			$text_filter = $query_array['text_filter_'.$x];
+			$field_filter = $query_array['field_filter_'.$x];
+			//var_dump($field_filter);
+			if ($text_filter && $field_filter) {
+				if ($field_filter == 'keyword') {
+					$search_query .= '+'.$text_filter;
+				}
+				else {
+					$compare = 'LIKE';
+					if ($compare_filter) {
+						if ($compare_filter == 'NOT') {
+							$compare = 'NOT LIKE';
+						}
+						else {
+							//$meta_query[] = '"relation" =>' .$compare_filter;
+							$meta_query['relation'] = $compare_filter;
+						}
+					}
+					$meta_query[] = array(
+						"key" => $field_filter,
+						"compare" => $compare,
+						"type" => "CHAR",
+						"value" => $text_filter,
+					);
+				}
+
+			}
+		}
+
+		if ($search_query || $meta_query) {
+			$args = array(
+				'post_type' => 'cpm-registry',
+				"post_status" => [
+					"publish"
+				],
+				's' => $search_query,
+				"meta_query" => $meta_query,
+				"posts_per_page" => "50",
+				"paged" => $paged
+			);
+
+			if ($search_query) {
+				$args[] = array('s' => $search_query);
+				$query = new \WP_Query($args);
+				relevanssi_do_query($query);
+			}
+			else {
+				$query = new \WP_Query($args);
+			}
+		}
+		else {
+			$error_msg = 'Search was not run. Make sure to enter a keyword and filter for each row.';
+		}
+		//var_dump($args);
+	}
+	include(locate_template('loop-templates/cpm-advanced-search.php', false, FALSE));
+}

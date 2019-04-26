@@ -9431,11 +9431,11 @@ header.header .container {
 header.header .bg-primary {
   background-color: rgba(0, 129, 201, 0.85) !important; }
 
-header.header nav #main-menu .nav-link {
+header.header nav #main-menu a {
   color: #fff; }
 
 header.header .navbar {
-  padding: 20px; }
+  padding: 20px 20px 10px 20px; }
   header.header .navbar > .container {
     position: relative;
     align-items: flex-end; }
@@ -9444,9 +9444,17 @@ header.header .navbar {
   header.header .navbar .navbar-nav li.menu-item {
     border-bottom: 1px #fff solid;
     padding: 5px 0; }
-  header.header .navbar .navbar-nav .nav-link {
+  header.header .navbar .navbar-nav a {
     padding-top: 0;
-    padding-bottom: 0; }
+    padding-bottom: 0;
+    display: block; }
+  header.header .navbar .navbar-nav .sub-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: .875rem; }
+    header.header .navbar .navbar-nav .sub-menu li.menu-item {
+      border: none; }
   header.header .navbar .navbar-toggler {
     font-size: 2rem;
     padding: 0;
@@ -9487,7 +9495,20 @@ header.header .tmc-logo {
 @media (min-width: 992px) {
   header.header .navbar .navbar-nav li.menu-item {
     border: none;
-    padding: 0; } }
+    padding: 0; }
+    header.header .navbar .navbar-nav li.menu-item a {
+      padding-left: .5rem;
+      padding-right: .5rem; }
+    header.header .navbar .navbar-nav li.menu-item .sub-menu {
+      position: absolute;
+      padding-top: 10px;
+      font-size: .875rem;
+      display: none; }
+      header.header .navbar .navbar-nav li.menu-item .sub-menu a {
+        padding: 5px;
+        background-color: #0081C9; }
+    header.header .navbar .navbar-nav li.menu-item:hover .sub-menu {
+      display: block; } }
 
 .parent-header {
   background-color: #153C49;
@@ -9551,44 +9572,56 @@ footer.footer {
       color: #0081C9; }
 
 /* registry list and detail styling */
-.registry #content {
+.registry #content, .registry-advanced #content {
   max-width: 1200px !important; }
 
-.registry .facetwp-type-fselect, .single-cpm-registry .facetwp-type-fselect {
+.registry .facetwp-type-fselect, .single-cpm-registry .facetwp-type-fselect, .registry-advanced .facetwp-type-fselect {
   font-size: .875rem; }
-  .registry .facetwp-type-fselect .fs-label-wrap, .single-cpm-registry .facetwp-type-fselect .fs-label-wrap {
+  .registry .facetwp-type-fselect .fs-label-wrap, .single-cpm-registry .facetwp-type-fselect .fs-label-wrap, .registry-advanced .facetwp-type-fselect .fs-label-wrap {
     background: #0081C9;
     border-radius: 10px;
     padding: 3px 5px;
     color: #fff;
     text-align: center;
     font-weight: 700; }
-  .registry .facetwp-type-fselect .fs-arrow, .single-cpm-registry .facetwp-type-fselect .fs-arrow {
+  .registry .facetwp-type-fselect .fs-arrow, .single-cpm-registry .facetwp-type-fselect .fs-arrow, .registry-advanced .facetwp-type-fselect .fs-arrow {
     border-top-color: #fff; }
-  .registry .facetwp-type-fselect .fs-wrap, .single-cpm-registry .facetwp-type-fselect .fs-wrap {
+  .registry .facetwp-type-fselect .fs-wrap, .single-cpm-registry .facetwp-type-fselect .fs-wrap, .registry-advanced .facetwp-type-fselect .fs-wrap {
     width: 100%; }
-  .registry .facetwp-type-fselect .fs-dropdown, .single-cpm-registry .facetwp-type-fselect .fs-dropdown {
+  .registry .facetwp-type-fselect .fs-dropdown, .single-cpm-registry .facetwp-type-fselect .fs-dropdown, .registry-advanced .facetwp-type-fselect .fs-dropdown {
     font-size: .75rem;
     width: 100%;
     position: relative; }
-    .registry .facetwp-type-fselect .fs-dropdown .fs-options, .single-cpm-registry .facetwp-type-fselect .fs-dropdown .fs-options {
+    .registry .facetwp-type-fselect .fs-dropdown .fs-options, .single-cpm-registry .facetwp-type-fselect .fs-dropdown .fs-options, .registry-advanced .facetwp-type-fselect .fs-dropdown .fs-options {
       max-height: 100%; }
 
-.registry #content, .single-cpm-registry #content {
+.registry #content, .single-cpm-registry #content, .registry-advanced #content {
   font-size: .875rem; }
-  .registry #content table thead th, .single-cpm-registry #content table thead th {
+  .registry #content table thead th, .single-cpm-registry #content table thead th, .registry-advanced #content table thead th {
     white-space: nowrap;
     border: none;
     padding: .5rem; }
-  .registry #content table tbody td, .single-cpm-registry #content table tbody td {
+    .registry #content table thead th:first-child, .single-cpm-registry #content table thead th:first-child, .registry-advanced #content table thead th:first-child {
+      min-width: 100px; }
+  .registry #content table tbody td, .single-cpm-registry #content table tbody td, .registry-advanced #content table tbody td {
     border: none;
     padding: .5rem; }
-  .registry #content table tbody tr:nth-child(odd), .single-cpm-registry #content table tbody tr:nth-child(odd) {
+  .registry #content table tbody tr:nth-child(odd), .single-cpm-registry #content table tbody tr:nth-child(odd), .registry-advanced #content table tbody tr:nth-child(odd) {
     background: rgba(105, 177, 196, 0.1); }
 
 @media (min-width: 992px) {
-  .registry #content, .registry .facetwp-type-fselect, .single-cpm-registry #content, .single-cpm-registry .facetwp-type-fselect {
+  .registry #content, .registry .facetwp-type-fselect, .single-cpm-registry #content, .single-cpm-registry .facetwp-type-fselect, .registry-advanced #content, .registry-advanced .facetwp-type-fselect {
     font-size: 1rem; } }
+
+.advanced-search {
+  margin-bottom: 20px; }
+  .advanced-search .row {
+    font-size: .875rem;
+    max-width: 500px; }
+    .advanced-search .row .text-filter input {
+      width: 100%; }
+  .advanced-search .btn {
+    margin-top: 20px; }
 
 /* Home page styling */
 .home .home-header {

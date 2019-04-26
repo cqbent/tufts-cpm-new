@@ -49,8 +49,14 @@ get_template_part( 'loop-templates/parent', 'header' );
               }
               else {
                 $fieldobj = get_field_object($field);
-                if ($fieldobj['value']) {
-	                ?><tr><td><?php print $fieldobj['label']; ?></td><td><?php print $fieldobj['value']; ?></td></tr> <?php
+	              if ($field == 'calibration_reported') {
+		              $value = $fieldobj['value'] ? 'Yes': 'No';
+	              }
+	              else {
+		              $value = $fieldobj['value'];
+	              }
+                if ($value) {
+	                ?><tr><td><?php print $fieldobj['label']; ?></td><td><?php print $value; ?></td></tr> <?php
                 }
               }
             }

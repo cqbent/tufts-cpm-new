@@ -13,7 +13,7 @@
     $('table').tableExport({
       formats: ["csv", "txt"],
     });
-});
+  });
 
   function checkForActiveFacets(facets) {
     //console.log(facets);
@@ -26,5 +26,11 @@
     });
     return active;
   }
+
+  /*
+
+   */
+
+
 })(jQuery);
 

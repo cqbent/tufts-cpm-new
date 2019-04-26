@@ -39,10 +39,13 @@ get_template_part( 'loop-templates/parent', 'header' );
 	              if ($post->post_name == 'registry') {
 		              cpm_registry();
 	              }
-                  elseif ($post->post_name == 'data-visualization') {
+	              elseif ($post->post_name == 'registry-advanced') {
+	                cpm_advanced_search();
+                }
+                elseif ($post->post_name == 'data-visualization') {
 		              data_visualization();
 	              }
-                  elseif ($post->post_name == 'publications') {
+                elseif ($post->post_name == 'publications') {
 		              publications();
 	              }
 	              ?>

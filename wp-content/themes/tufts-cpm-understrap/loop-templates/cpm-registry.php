@@ -21,7 +21,7 @@ if ($query->have_posts()) {
     </div>
     <div class="col-md-9">
       <h3>Your search returned <span class="facetwp-counts"></span> results</h3>
-      <table class="table facetwp-template table-responsive" id="registry-list">
+      <table class="table facetwp-template table" id="registry-list">
         <thead>
         <tr>
           <th scope="col">Model ID</th>

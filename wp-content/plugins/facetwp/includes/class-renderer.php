@@ -104,7 +104,6 @@ class FacetWP_Renderer
             $this->template = FWP()->helper->get_template_by_name( $params['template'] );
             $query_args = $this->get_query_args();
         }
-
         // Detect search string
         if ( ! empty( $query_args['s'] ) ) {
             $this->is_search = true;
@@ -376,6 +375,7 @@ class FacetWP_Renderer
             $query_args = preg_replace( "/\xC2\xA0/", ' ', $this->template['query'] );
             $query_args = (array) eval( '?>' . $query_args );
         }
+
 
         // Merge the two arrays
         return array_merge( $defaults, $query_args );
