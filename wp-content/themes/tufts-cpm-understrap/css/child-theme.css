@@ -9575,6 +9575,12 @@ footer.footer {
 .registry #content, .registry-advanced #content {
   max-width: 1200px !important; }
 
+.registry .filter-type, .single-cpm-registry .filter-type, .registry-advanced .filter-type {
+  font-size: .875rem; }
+
+.registry label, .single-cpm-registry label, .registry-advanced label {
+  font-weight: 700; }
+
 .registry .facetwp-type-fselect, .single-cpm-registry .facetwp-type-fselect, .registry-advanced .facetwp-type-fselect {
   font-size: .875rem; }
   .registry .facetwp-type-fselect .fs-label-wrap, .single-cpm-registry .facetwp-type-fselect .fs-label-wrap, .registry-advanced .facetwp-type-fselect .fs-label-wrap {
@@ -9583,7 +9589,8 @@ footer.footer {
     padding: 3px 5px;
     color: #fff;
     text-align: center;
-    font-weight: 700; }
+    font-weight: 700;
+    font-size: .875rem; }
   .registry .facetwp-type-fselect .fs-arrow, .single-cpm-registry .facetwp-type-fselect .fs-arrow, .registry-advanced .facetwp-type-fselect .fs-arrow {
     border-top-color: #fff; }
   .registry .facetwp-type-fselect .fs-wrap, .single-cpm-registry .facetwp-type-fselect .fs-wrap, .registry-advanced .facetwp-type-fselect .fs-wrap {
@@ -9593,7 +9600,13 @@ footer.footer {
     width: 100%;
     position: relative; }
     .registry .facetwp-type-fselect .fs-dropdown .fs-options, .single-cpm-registry .facetwp-type-fselect .fs-dropdown .fs-options, .registry-advanced .facetwp-type-fselect .fs-dropdown .fs-options {
-      max-height: 100%; }
+      max-height: 550px; }
+
+.registry .facetwp-type-number_range .facetwp-number, .single-cpm-registry .facetwp-type-number_range .facetwp-number, .registry-advanced .facetwp-type-number_range .facetwp-number {
+  width: 50px;
+  margin-right: 10px; }
+  .registry .facetwp-type-number_range .facetwp-number:after, .single-cpm-registry .facetwp-type-number_range .facetwp-number:after, .registry-advanced .facetwp-type-number_range .facetwp-number:after {
+    content: " - "; }
 
 .registry #content, .single-cpm-registry #content, .registry-advanced #content {
   font-size: .875rem; }
@@ -9603,6 +9616,22 @@ footer.footer {
     padding: .5rem; }
     .registry #content table thead th:first-child, .single-cpm-registry #content table thead th:first-child, .registry-advanced #content table thead th:first-child {
       min-width: 100px; }
+    .registry #content table thead th a:after, .single-cpm-registry #content table thead th a:after, .registry-advanced #content table thead th a:after {
+      content: "\25B2";
+      padding-left: 3px;
+      visibility: hidden; }
+    .registry #content table thead th:hover a:after, .single-cpm-registry #content table thead th:hover a:after, .registry-advanced #content table thead th:hover a:after {
+      visibility: visible; }
+    .registry #content table thead th.active, .single-cpm-registry #content table thead th.active, .registry-advanced #content table thead th.active {
+      background: rgba(105, 177, 196, 0.5); }
+      .registry #content table thead th.active a:after, .single-cpm-registry #content table thead th.active a:after, .registry-advanced #content table thead th.active a:after {
+        visibility: visible; }
+      .registry #content table thead th.active.asc:hover a:after, .single-cpm-registry #content table thead th.active.asc:hover a:after, .registry-advanced #content table thead th.active.asc:hover a:after {
+        content: "\25BC"; }
+      .registry #content table thead th.active.desc a:after, .single-cpm-registry #content table thead th.active.desc a:after, .registry-advanced #content table thead th.active.desc a:after {
+        content: "\25BC"; }
+      .registry #content table thead th.active.desc:hover a:after, .single-cpm-registry #content table thead th.active.desc:hover a:after, .registry-advanced #content table thead th.active.desc:hover a:after {
+        content: "\25B2"; }
   .registry #content table tbody td, .single-cpm-registry #content table tbody td, .registry-advanced #content table tbody td {
     border: none;
     padding: .5rem; }

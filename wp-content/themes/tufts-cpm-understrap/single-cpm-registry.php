@@ -56,8 +56,9 @@ get_template_part( 'loop-templates/parent', 'header' );
 		              $value = $fieldobj['value'];
 	              }
                 if ($value) {
-	                ?><tr><td><?php print $fieldobj['label']; ?></td><td><?php print $value; ?></td></tr> <?php
+
                 }
+	              ?><tr><td><?php print $fieldobj['label']; ?></td><td><?php print $value; ?></td></tr> <?php
               }
             }
             ?>

@@ -46,25 +46,6 @@ function landing_page_header($id) {
 	return $landing_page_id;
 }
 
-/*
- * query and display cpm registry list along with facets
- */
-function cpm_registry() {
-	// build query
-	$args = array(
-		'post_type' => 'cpm-registry',
-		'posts_per_page' => 50,
-		'facetwp' => true, // we added this
-	);
-	$query = new \WP_Query($args);
-	// display in table format
-  include(locate_template('loop-templates/cpm-registry.php', false, FALSE));
-
-}
-
-add_filter( 'facetwp_is_main_query', function( $bool, $query ) {
-	return ( true === $query->get( 'facetwp' ) ) ? true : $bool;
-}, 10, 2 );
 
 /*
  * data visualization list
@@ -139,7 +120,65 @@ function feature_news() {
 	return $result;
 }
 
+function cpm_registry_list() {
+	$field_list = array(
+		'Model ID' => 'model_id',
+		'Pubmed ID' => 'pubmed_id',
+		'Primary Index Condition' => 'primary_index_condition',
+		'Outcome' => 'outcome'
+	);
+}
+
+/*
+ * CPM Registry functions
+ */
+
+/*
+ * add FacetWP as main query when 'facetwp' is in querystring
+ */
+add_filter( 'facetwp_is_main_query', function( $bool, $query ) {
+	return ( true === $query->get( 'facetwp' ) ) ? true : $bool;
+}, 10, 2 );
+
+function cpm_registry($type = 'basic') {
+	if ($type == 'advanced') {
+		cpm_advanced_search();
+	}
+	else {
+		cpm_registry_basic();
+	}
+}
+
+/*
+ * query and display cpm registry list along with facets
+ */
+function cpm_registry_basic() {
+	// build query
+	$ordertype = 'meta_value_num';
+	parse_str($_SERVER["QUERY_STRING"], $query_array);
+	$args = array(
+		'post_type' => 'cpm-registry',
+		'posts_per_page' => -1,
+		'facetwp' => true, // we added this
+	);
+	if ($orderby = $query_array['orderby']) {
+		if ($orderby == 'primary_index_condition' || $orderby == 'outcome') {
+			$ordertype = 'meta_value';
+		}
+		$args['meta_key'] = $orderby;
+		$args['orderby'] = $ordertype;
+		$args['order'] = $query_array['order'];
+	}
+	$query = new \WP_Query($args);
+	// display in table format
+	include(locate_template('loop-templates/cpm-registry.php', false, FALSE));
+
+}
+
+
+
 function cpm_advanced_search() {
+	$type = 'Advanced';
 	// build query
 	$query = '';
 	$filter_rows = array();
@@ -148,7 +187,7 @@ function cpm_advanced_search() {
 	$search_query = '';
 	$error_msg = '';
 	$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
-
+	$ordertype = 'meta_value_num';
 	/*
 	 * for each row set each field
 	 */
@@ -193,12 +232,20 @@ function cpm_advanced_search() {
 				],
 				's' => $search_query,
 				"meta_query" => $meta_query,
-				"posts_per_page" => "50",
+				"posts_per_page" => "-1",
 				"paged" => $paged
 			);
+			if ($orderby = $query_array['orderby']) {
+				if ($orderby == 'primary_index_condition' || $orderby == 'outcome') {
+					$ordertype = 'meta_value';
+				}
+				$args['meta_key'] = $orderby;
+				$args['orderby'] = $ordertype;
+				$args['order'] = $query_array['order'];
 
+			}
 			if ($search_query) {
-				$args[] = array('s' => $search_query);
+				//$args[] = array('s' => $search_query);
 				$query = new \WP_Query($args);
 				relevanssi_do_query($query);
 			}
@@ -213,3 +260,4 @@ function cpm_advanced_search() {
 	}
 	include(locate_template('loop-templates/cpm-advanced-search.php', false, FALSE));
 }
+

@@ -31,6 +31,36 @@ function cpm_registry_init() {
 		'rest_controller_class' => 'WP_REST_Posts_Controller',
 	) );
 
+	register_post_type('cpm-validations', array(
+		'labels'            => array(
+			'name'                => __( 'CPM Validations', 'CPM Validations' ),
+			'singular_name'       => __( 'Validation', 'CPM Validations' ),
+			'all_items'           => __( 'All Validations', 'CPM Validations' ),
+			'new_item'            => __( 'New Validation', 'CPM Validations' ),
+			'add_new'             => __( 'Add New', 'CPM Validations' ),
+			'add_new_item'        => __( 'Add New CPM Registry item', 'CPM Validations' ),
+			'edit_item'           => __( 'Edit Validation', 'CPM Validations' ),
+			'view_item'           => __( 'View Validation', 'CPM Validations' ),
+			'search_items'        => __( 'Search Validations', 'CPM Validations' ),
+			'not_found'           => __( 'No Validation found', 'CPM Validations' ),
+			'not_found_in_trash'  => __( 'No Validation found in trash', 'CPM Validations' ),
+			'parent_item_colon'   => __( 'Parent Validation', 'CPM Validations' ),
+			'menu_name'           => __( 'CPM Validations', 'CPM Validations' ),
+		),
+		'public'            => true,
+		'hierarchical'      => false,
+		'show_ui'           => true,
+		'show_in_nav_menus' => true,
+		'supports'          => array( 'title', 'editor', 'custom-fields' ),
+		'has_archive'       => false,
+		'rewrite'           => array( 'slug' => 'validations', 'with_front' => false ),
+		'query_var'         => true,
+		'menu_icon'         => 'dashicons-yes',
+		'show_in_rest'      => true,
+		'rest_base'         => 'cpm-validations',
+		'rest_controller_class' => 'WP_REST_Posts_Controller',
+	));
+
 }
 add_action( 'init', 'cpm_registry_init' );
 
@@ -59,3 +89,4 @@ function cpm_registry_updated_messages( $messages ) {
 	return $messages;
 }
 add_filter( 'post_updated_messages', 'cpm_registry_updated_messages' );
+

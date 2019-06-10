@@ -3,6 +3,9 @@
       'Outcome' => 'outcome',
       'Index Condition' => 'primary_index_condition',
       'Secondary Condition' => 'secondary_index_condition',
+      'Author' => 'author',
+      'Journal' => 'journal',
+      'Covariates' => 'covariates',
       'Keyword' => 'keyword'
   );
   $compare_filters = array('AND','OR','NOT');
@@ -13,15 +16,9 @@
     if ($query) {
       ?>
       <div class="col-md-3">
-        <h3>Filter By:</h3>
-        <div class="filter-type">
-          <?php print do_shortcode('[facetwp facet="index_condition"]'); ?>
-        </div>
-        <div class="filter-type">
-          <?php print do_shortcode('[facetwp facet="outcome"]'); ?>
-        </div>
-        <?php do_shortcode('[facetwp pager="true"]'); ?>
-        <?php do_shortcode('[facetwp counts="true"]'); ?>
+	      <?php
+	      include(locate_template('loop-templates/registry-filters.php', false, FALSE));
+	      ?>
       </div>
       <?php
     }
@@ -29,7 +26,7 @@
     <div class="col-md-9">
       <form method="get" class="advanced-search">
 	      <?php
-	      for ($x = 0; $x < 4; $x++) {
+	      for ($x = 0; $x < count($field_filters); $x++) {
 		      ?>
           <div class="row fieldset_<?php print $x;?>">
             <div class="col-2 compare-filter">
@@ -73,39 +70,10 @@
       <?php
         if ($query) {
           ?>
-            <div>Found <span class="facetwp-counts"></span> posts based on your search.</div>
-          <table class="table facetwp-template table" id="registry-list">
-            <thead>
-            <tr>
-              <th scope="col">Model ID</th>
-              <th scope="col">PubMed ID</th>
-              <th scope="col">Year</th>
-              <th scope="col">Primary Index Condition</th>
-              <th scope="col">Outcome</th>
-            </tr>
-            </thead>
-            <tbody>
+          <div>Found <span class="facetwp-counts"></span> posts based on your search.</div>
 	        <?php
-	        while ($query->have_posts()) {
-		        $query->the_post();
-		        ?>
-              <tr>
-                <td><a href="<?php print get_the_permalink(); ?>"><?php print get_field('model_id', get_the_ID()); ?></a></td>
-                <td><a href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&db=pubmed&dopt=Abstract&list_uids=<?php print get_field('pubmed_id', get_the_ID()); ?>" target="_blank"><?php print get_field('pubmed_id', get_the_ID()); ?></a></td>
-                <td><?php print get_field('year', get_the_ID()); ?></td>
-                <td><?php print get_field('primary_index_condition', get_the_ID()); ?></td>
-                <td><?php print get_field('outcome', get_the_ID()); ?></td>
-              </tr>
-		        <?php
-	        }
-	        wp_reset_postdata();
+	        include(locate_template('loop-templates/registry-table.php', false, FALSE));
 	        ?>
-
-          </table>
-          <div class="pager">
-              <?php //echo paginate_links( array('total' => $query->max_num_pages) ); ?>
-          </div>
-
 	        <?php
 
         }
