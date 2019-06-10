@@ -375,14 +375,14 @@ a:hover {
 .facetwp-card,
 .facetwp-table-header {
     display: grid;
-    grid-template-columns: 30px 2fr 2fr 2fr 1fr 30px;
+    grid-template-columns: 30px 1fr 30px 1fr 1fr 90px;
     line-height: 20px;
     padding: 8px;
 }
 
 .facetwp-region-templates .facetwp-card,
 .facetwp-region-templates .facetwp-table-header {
-    grid-template-columns: 30px 1fr 1fr 1fr 30px;
+    grid-template-columns: 30px 1fr 30px 1fr 1fr;
 }
 
 .facetwp-table-header {
@@ -408,14 +408,13 @@ a:hover {
 .facetwp-card .card-delete {
     visibility: hidden;
     position: relative;
-    color: #dc3545;
 }
 
 .facetwp-card .card-delete::after {
-    position: absolute;
-    right: 0;
     content: '\f335';
     font: 400 20px/1 dashicons;
+    height: 20px;
+    color: #dc3545;
 }
 
 .facetwp-card:hover .card-delete {

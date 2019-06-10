@@ -306,7 +306,8 @@ $false_value = isset( $atts['false_value'] ) ? $atts['false_value'] : 'no';
             'Stop indexer' => __( 'Stop indexer', 'fwp' ),
             'Loading' => __( 'Loading', 'fwp' ),
             'Importing' => __( 'Importing', 'fwp' ),
-            'Convert to query args' => __( 'Convert to query args', 'fwp' )
+            'Convert to query args' => __( 'Convert to query args', 'fwp' ),
+            'Delete item?' => __( 'Delete item?', 'fwp' )
         ];
     }
 

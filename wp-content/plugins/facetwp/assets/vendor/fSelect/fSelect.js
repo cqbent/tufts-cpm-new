@@ -1,4 +1,4 @@
-/* fSelect 1.0 - https://github.com/mgibbs189/fselect */
+/* fSelect 1.0.1 - https://github.com/mgibbs189/fselect */
 
 (function($) {
 
@@ -65,7 +65,7 @@
                 var choices_html = this.buildOptions(this.$select);
 
                 if (this.settings.showSearch) {
-                    search_html = '<div class="fs-search"><input type="search" placeholder="' + this.settings.searchText + '" /></div>';
+                    search_html = '<div class="fs-search"><input type="text" placeholder="' + this.settings.searchText + '" /></div>';
                 }
                 if ('' !== this.settings.noResultsText) {
                     no_results_html = '<div class="fs-no-results hidden">' + this.settings.noResultsText + '</div>';
@@ -154,7 +154,6 @@
 
                 this.$wrap.find('.fs-label').html(labelText);
                 this.$wrap.toggleClass('fs-default', labelText === settings.placeholder);
-                this.$select.change();
             }
         }
 
@@ -190,6 +189,7 @@
 
     $(document).on('click', '.fs-option:not(.hidden, .disabled)', function(e) {
         var $wrap = $(this).closest('.fs-wrap');
+        var $select = $wrap.find('select');
         var do_close = false;
 
         // prevent selections
@@ -231,8 +231,9 @@
             do_close = true;
         }
 
-        $wrap.find('select').val(selected);
-        $wrap.find('select').fSelect('reloadDropdownLabel');
+        $select.val(selected);
+        $select.fSelect('reloadDropdownLabel');
+        $select.change();
 
         // fire an event
         $(document).trigger('fs:changed', $wrap);

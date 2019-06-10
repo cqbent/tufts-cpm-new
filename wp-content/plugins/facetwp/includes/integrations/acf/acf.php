@@ -182,9 +182,10 @@ class FacetWP_Integration_ACF
      */
     function index_field_value( $value, $field, $params ) {
         $value = maybe_unserialize( $value );
+        $type = $field['type'];
 
         // checkboxes
-        if ( 'checkbox' == $field['type'] || 'select' == $field['type'] || 'radio' == $field['type'] ) {
+        if ( 'checkbox' == $type || 'select' == $type || 'radio' == $type ) {
             if ( false !== $value ) {
                 foreach ( (array) $value as $val ) {
                     $display_value = isset( $field['choices'][ $val ] ) ?
@@ -199,7 +200,7 @@ class FacetWP_Integration_ACF
         }
 
         // relationship
-        elseif ( 'relationship' == $field['type'] || 'post_object' == $field['type'] ) {
+        elseif ( 'relationship' == $type || 'post_object' == $type || 'page_link' == $type ) {
             if ( false !== $value ) {
                 foreach ( (array) $value as $val ) {
 
@@ -214,7 +215,7 @@ class FacetWP_Integration_ACF
         }
 
         // user
-        elseif ( 'user' == $field['type'] ) {
+        elseif ( 'user' == $type ) {
             if ( false !== $value )  {
                 foreach ( (array) $value as $val ) {
                     $user = get_user_by( 'id', $val );
@@ -230,7 +231,7 @@ class FacetWP_Integration_ACF
         }
 
         // taxonomy
-        elseif ( 'taxonomy' == $field['type'] ) {
+        elseif ( 'taxonomy' == $type ) {
             if ( ! empty( $value ) ) {
                 foreach ( (array) $value as $val ) {
                     global $wpdb;
@@ -250,7 +251,7 @@ class FacetWP_Integration_ACF
         }
 
         // date_picker
-        elseif ( 'date_picker' == $field['type'] ) {
+        elseif ( 'date_picker' == $type ) {
             $formatted = $this->format_date( $value );
             $params['facet_value'] = $formatted;
             $params['facet_display_value'] = apply_filters( 'facetwp_acf_display_value', $formatted, $params );
@@ -258,7 +259,7 @@ class FacetWP_Integration_ACF
         }
 
         // true_false
-        elseif ( 'true_false' == $field['type'] ) {
+        elseif ( 'true_false' == $type ) {
             $display_value = ( 0 < (int) $value ) ? __( 'Yes', 'fwp-front' ) : __( 'No', 'fwp-front' );
             $params['facet_value'] = $value;
             $params['facet_display_value'] = $display_value;
@@ -266,7 +267,7 @@ class FacetWP_Integration_ACF
         }
 
         // google_map
-        elseif ( 'google_map' == $field['type'] ) {
+        elseif ( 'google_map' == $type ) {
             if ( isset( $value['lat'] ) && isset( $value['lng'] ) ) {
                 $params['facet_value'] = $value['lat'];
                 $params['facet_display_value'] = $value['lng'];

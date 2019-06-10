@@ -135,10 +135,10 @@ FWP.data.settings = FWP.hooks.applyFilters('facetwp/load_settings', FWP.data.set
                 <div class="facetwp-table-header">
                     <div></div>
                     <div><?php _e( 'Facet', 'fwp' ); ?></div>
+                    <div></div>
                     <div><?php _e( 'Type', 'fwp' ); ?></div>
                     <div><?php _e( 'Source', 'fwp' ); ?></div>
                     <div><?php _e( 'Rows', 'fwp' ); ?></div>
-                    <div></div>
                 </div>
                 <facets :facets="app.facets"></facets>
             </div>
@@ -162,9 +162,9 @@ FWP.data.settings = FWP.hooks.applyFilters('facetwp/load_settings', FWP.data.set
                 <div class="facetwp-table-header">
                     <div></div>
                     <div><?php _e( 'Template', 'fwp' ); ?></div>
+                    <div></div>
                     <div><?php _e( 'Display mode', 'fwp' ); ?></div>
                     <div><?php _e( 'Post types', 'fwp' ); ?></div>
-                    <div></div>
                 </div>
                 <templates :templates="app.templates"></templates>
             </div>

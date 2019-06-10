@@ -19,22 +19,25 @@ class FacetWP_Init
         // is_plugin_active
         include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
-        // api 
-        include( FACETWP_DIR . '/includes/api/fetch.php' );
-        include( FACETWP_DIR . '/includes/api/refresh.php' );
+        $includes = [
+            'api/fetch',
+            'api/refresh',
+            'class-helper',
+            'class-ajax',
+            'class-renderer',
+            'class-diff',
+            'class-indexer',
+            'class-display',
+            'class-builder',
+            'class-overrides',
+            'class-settings-admin',
+            'class-upgrade',
+            'functions'
+        ];
 
-        // core
-        include( FACETWP_DIR . '/includes/class-helper.php' );
-        include( FACETWP_DIR . '/includes/class-ajax.php' );
-        include( FACETWP_DIR . '/includes/class-renderer.php' );
-        include( FACETWP_DIR . '/includes/class-diff.php' );
-        include( FACETWP_DIR . '/includes/class-indexer.php' );
-        include( FACETWP_DIR . '/includes/class-display.php' );
-        include( FACETWP_DIR . '/includes/class-builder.php' );
-        include( FACETWP_DIR . '/includes/class-overrides.php' );
-        include( FACETWP_DIR . '/includes/class-settings-admin.php' );
-        include( FACETWP_DIR . '/includes/class-upgrade.php' );
-        include( FACETWP_DIR . '/includes/functions.php' );
+        foreach ( $includes as $inc ) {
+            include ( FACETWP_DIR . "/includes/$inc.php" );
+        }
 
         new FacetWP_Upgrade();
         new FacetWP_Overrides();

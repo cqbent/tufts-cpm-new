@@ -347,6 +347,9 @@
                         if (0 === source.indexOf('cf/')) {
                             fields.push('field_type', 'date_format', 'input_format', 'number_format', 'link');
                         }
+                        if (0 === source.indexOf('woo/')) {
+                            fields.push('field_type', 'date_format', 'input_format', 'number_format');
+                        }
                         if (0 === source.indexOf('tax/')) {
                             fields.push('separator', 'term_link');
                         }
@@ -1046,7 +1049,7 @@
                     <span @click="deleteCol" title="Delete column"><i class="fas fa-times"></i></span>
                 </div>
                 <div class="builder-col-inner" :class="[ !col.items.length ? 'empty-col' : '' ]">
-                    <draggable v-model="col.items" handle=".item-drag" class="draggable">
+                    <draggable v-model="col.items" handle=".item-drag" group="drag-across-columns" class="draggable">
                         <div v-for="(item, index) in col.items" :key="index">
                         <builder-item
                             v-if="item.type != 'row'"
@@ -1268,11 +1271,11 @@
                     @click="$root.editItem('facet', facet)"
                 >
                     <div class="card-drag">&#9776;</div>
-                    <div class="card-label">{{ facet.label }}</div>
+                    <div class="card-label" :title="facet.name">{{ facet.label }}</div>
+                    <div class="card-delete" @click.stop="$root.deleteItem('facet', index)"></div>
                     <div class="card-type">{{ facet.type }}</div>
                     <div class="card-source" v-html="getSource(facet.source)"></div>
                     <div class="card-rows">{{ getRowCount(facet.name) }}</div>
-                    <div class="card-delete" @click.stop="$root.deleteItem('facet', index)"></div>
                 </div>
             </draggable>
             `,
@@ -1299,10 +1302,10 @@
                     @click="$root.editItem('template', template)"
                 >
                     <div class="card-drag">&#9776;</div>
-                    <div class="card-label">{{ template.label }}</div>
+                    <div class="card-label" :title="template.name">{{ template.label }}</div>
+                    <div class="card-delete" @click.stop="$root.deleteItem('template', index)"></div>
                     <div class="card-display-mode">{{ getDisplayMode(index) }}</div>
                     <div class="card-post-types">{{ getPostTypes(index) }}</div>
-                    <div class="card-delete" @click.stop="$root.deleteItem('template', index)"></div>
                 </div>
             </draggable>
             `,
@@ -1579,6 +1582,11 @@
                 this.original_facet_type = this.facet.type;
             },
             watch: {
+                'facet.type': function(val) {
+                    if ('search' == val) {
+                        this.facet.source = '';
+                    }
+                },
                 'facet.ghosts': function(val) {
                     if ('no' == val) {
                         this.facet.preserve_ghosts = 'no';
@@ -1603,7 +1611,7 @@
                 }
             },
             template: `
-            <select :id="rand" v-model="modelName">
+            <select :id="rand" v-model="dataSourcesModel">
                 <option v-if="settingName != 'source'" value="">{{ 'None' | i18n }}</option>
                 <optgroup v-for="optgroup in sources" :label="optgroup.label">
                     <option v-for="(label, key) in optgroup.choices" :value="key" :selected="selected == key">{{ label }}</option>
@@ -1620,7 +1628,7 @@
                 }
             },
             computed: {
-                modelName() {
+                dataSourcesModel() {
 
                     // create the setting if needed
                     if ('undefined' === typeof this.facet[this.settingName]) {
@@ -1708,7 +1716,9 @@
                     return this.editing.label;
                 },
                 deleteItem(type, index) {
-                    this.app[type + 's'].splice(index, 1);
+                    if (confirm(FWP.__('Delete item?'))) {
+                        this.app[type + 's'].splice(index, 1);
+                    }
                 },
                 saveChanges() {
                     $('.facetwp-response').html(FWP.__('Saving') + '...');

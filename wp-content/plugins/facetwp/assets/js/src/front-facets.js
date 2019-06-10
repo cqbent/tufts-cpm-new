@@ -23,6 +23,14 @@
             var $this = $(this);
             var $parent = $this.closest('.facetwp-facet');
             var facet_name = $parent.attr('data-name');
+
+            // ignore the current facet's selections
+            var post_data = FWP.build_post_data();
+            var facet_values = JSON.parse(JSON.stringify(FWP.facets)); // clone
+            facet_values[facet_name] = ''; // clear value
+            post_data.facets = JSON.stringify(facet_values);
+
+            // initialize
             var opts = FWP.hooks.applyFilters('facetwp/set_options/autocomplete', {
                 serviceUrl: ('wp' === FWP.template) ? document.URL : FWP_JSON.ajaxurl,
                 type: 'POST',
@@ -38,7 +46,7 @@
                 params: {
                     action: 'facetwp_autocomplete_load',
                     facet_name: facet_name,
-                    data: FWP.build_post_data()
+                    data: post_data
                 }
             }, { 'facet_name': facet_name });
             $this.autocomplete(opts);
