@@ -260,4 +260,59 @@ function cpm_advanced_search() {
 	}
 	include(locate_template('loop-templates/cpm-advanced-search.php', false, FALSE));
 }
+/*
+ * Validation data for individual cpm registry page
+ */
+function cpm_validations($id1, $id2) {
+	// query all validations per model id; count # validations; calculate median auc; list validations in tabular format
+	$args = array(
+		'post_type' => 'cpm-validations',
+		'posts_per_page' => -1,
+		'meta_query' => array(
+			'relation' => 'OR',
+			array(
+				'key' => 'de_novo_pmid',
+				'value' => $id1,
+				'compare' => '='
+			),
+			array (
+				'key' => 'model_id',
+				'value' => $id2,
+				'compare' => '='
+			),
+		),
+	);
+	$query = new \WP_Query($args);
+	$validations = array();
+	$count = 0;
+	$mauc = 0;
+	$extval = 0;
+	if ($query->have_posts()) {
+		$count = $query->post_count;
+		while ($query->have_posts()) {
+			$query->the_post();
+			$extval = $extval + get_field('external_validations', get_the_ID());
+			$validations[] = array(
+				'PMID' => get_field('validation_pmid', get_the_ID()),
+				'Sample Size' => get_field('validation_sample_size', get_the_ID()),
+				'AUC' => get_field('validation_auc', get_the_ID()),
+				'Calibration' => get_field('calibration_reported', get_the_ID()),
+				'External Validations' => get_field('external_validations', get_the_ID()),
+			);
+		}
+		wp_reset_postdata();
+		$mvid = round(($count + 1) / 2);
+		$mauc = $validations[$mvid - 1]['AUC'];
+		if ($count % 2 == 0) {
+			$mauc = ($mauc + $validations[$mvid - 2]['AUC']) / 2;
+		}
+	}
+	return array(
+		'validations' => $validations,
+		'count' => $count,
+		'mauc' => $mauc,
+		'extval' => $extval
+	);
+
+}
 

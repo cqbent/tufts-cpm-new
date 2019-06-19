@@ -9614,8 +9614,6 @@ footer.footer {
     white-space: nowrap;
     border: none;
     padding: .5rem; }
-    .registry #content table thead th:first-child, .single-cpm-registry #content table thead th:first-child, .registry-advanced #content table thead th:first-child {
-      min-width: 100px; }
     .registry #content table thead th a:after, .single-cpm-registry #content table thead th a:after, .registry-advanced #content table thead th a:after {
       content: "\25B2";
       padding-left: 3px;
@@ -9632,11 +9630,27 @@ footer.footer {
         content: "\25BC"; }
       .registry #content table thead th.active.desc:hover a:after, .single-cpm-registry #content table thead th.active.desc:hover a:after, .registry-advanced #content table thead th.active.desc:hover a:after {
         content: "\25B2"; }
+  .registry #content table thead.registry-table th:first-child, .single-cpm-registry #content table thead.registry-table th:first-child, .registry-advanced #content table thead.registry-table th:first-child {
+    min-width: 100px; }
   .registry #content table tbody td, .single-cpm-registry #content table tbody td, .registry-advanced #content table tbody td {
     border: none;
     padding: .5rem; }
   .registry #content table tbody tr:nth-child(odd), .single-cpm-registry #content table tbody tr:nth-child(odd), .registry-advanced #content table tbody tr:nth-child(odd) {
     background: rgba(105, 177, 196, 0.1); }
+  .registry #content table.registry-table tbody td, .single-cpm-registry #content table.registry-table tbody td, .registry-advanced #content table.registry-table tbody td {
+    min-width: 200px; }
+
+.registry .validations, .single-cpm-registry .validations, .registry-advanced .validations {
+  padding: 15px;
+  border: 1px #52595e solid;
+  font-size: .75rem; }
+  .registry .validations h3, .single-cpm-registry .validations h3, .registry-advanced .validations h3 {
+    text-align: center;
+    font-size: 1.25rem; }
+  .registry .validations label, .single-cpm-registry .validations label, .registry-advanced .validations label {
+    margin-right: 10px; }
+  .registry .validations table, .single-cpm-registry .validations table, .registry-advanced .validations table {
+    margin: 0; }
 
 @media (min-width: 992px) {
   .registry #content, .registry .facetwp-type-fselect, .single-cpm-registry #content, .single-cpm-registry .facetwp-type-fselect, .registry-advanced #content, .registry-advanced .facetwp-type-fselect {

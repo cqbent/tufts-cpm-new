@@ -60,9 +60,6 @@
           white-space: nowrap;
           border: none;
           padding: .5rem;
-          &:first-child {
-            min-width: 100px;
-          }
           a:after {
             content: "\25B2";
             padding-left: 3px;
@@ -90,6 +87,13 @@
             }
           }
         }
+        &.registry-table {
+          th {
+            &:first-child {
+              min-width: 100px;
+            }
+          }
+        }
       }
       tbody {
         td {
@@ -100,6 +104,27 @@
           background: rgba($green, .1);
         }
       }
+      &.registry-table {
+        tbody td {
+          min-width: 200px;
+        }
+      }
+    }
+  }
+  .validations {
+    padding: 15px;
+    border: 1px $gray solid;
+    font-size: .75rem;
+    h3 {
+      text-align: center;
+      font-size: 1.25rem;
+    }
+    label {
+      margin-right: 10px;
+    }
+    table {
+      margin: 0;
+
     }
   }
   @include media-breakpoint-up(lg) {

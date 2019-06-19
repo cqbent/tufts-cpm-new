@@ -1,5 +1,6 @@
 <?php
   $field_filters = array(
+      'Model ID' => 'model_id',
       'Outcome' => 'outcome',
       'Index Condition' => 'primary_index_condition',
       'Secondary Condition' => 'secondary_index_condition',
