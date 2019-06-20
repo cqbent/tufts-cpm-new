@@ -100,6 +100,7 @@ get_template_part( 'loop-templates/parent', 'header' );
                         <th>Sample Size</th>
                         <th>AUC</th>
                         <th>Calibration</th>
+                        <th>Relatedness</th>
                       </tr>
                       </thead>
                       <tbody>
@@ -107,10 +108,11 @@ get_template_part( 'loop-templates/parent', 'header' );
                   foreach ($validations['validations'] as $validation) {
                     ?>
                         <tr>
-                          <td><?php print $validation['PMID']; ?></td>
+                          <td><a href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&db=pubmed&dopt=Abstract&list_uids=<?php print $validation['PMID']; ?>" target="_blank"><?php print $validation['PMID']; ?></a></td>
                           <td><?php print $validation['Sample Size']; ?></td>
                           <td><?php print $validation['AUC']; ?></td>
                           <td><?php print $validation['Calibration']; ?></td>
+                          <td><?php print $validation['Relatedness']; ?></td>
                         </tr>
                     <?php
                   }

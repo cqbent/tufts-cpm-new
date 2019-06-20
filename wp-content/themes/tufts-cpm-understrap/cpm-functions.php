@@ -269,7 +269,7 @@ function cpm_validations($id1, $id2) {
 		'post_type' => 'cpm-validations',
 		'posts_per_page' => -1,
 		'meta_query' => array(
-			'relation' => 'OR',
+			'relation' => 'AND',
 			array(
 				'key' => 'de_novo_pmid',
 				'value' => $id1,
@@ -298,6 +298,7 @@ function cpm_validations($id1, $id2) {
 				'AUC' => get_field('validation_auc', get_the_ID()),
 				'Calibration' => get_field('calibration_reported', get_the_ID()),
 				'External Validations' => get_field('external_validations', get_the_ID()),
+				'Relatedness' => get_field('relatedness', get_the_ID()),
 			);
 		}
 		wp_reset_postdata();

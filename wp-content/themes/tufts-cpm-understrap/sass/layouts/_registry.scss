@@ -110,23 +110,32 @@
         }
       }
     }
+    .validations {
+      padding: 15px;
+      border: 1px $gray solid;
+      font-size: .75rem;
+      h3 {
+        text-align: center;
+        font-size: 1.25rem;
+      }
+      label {
+        margin-right: 10px;
+        font-weight: 600;
+      }
+      table {
+        margin: 0;
+        thead th {
+          font-weight: 600;
+          padding: 0;
+        }
+        tbody td {
+          border-right: 1px #fff solid;
+          padding: 5px;
+        }
+      }
+    }
   }
-  .validations {
-    padding: 15px;
-    border: 1px $gray solid;
-    font-size: .75rem;
-    h3 {
-      text-align: center;
-      font-size: 1.25rem;
-    }
-    label {
-      margin-right: 10px;
-    }
-    table {
-      margin: 0;
 
-    }
-  }
   @include media-breakpoint-up(lg) {
     #content, .facetwp-type-fselect {
       font-size: 1rem;

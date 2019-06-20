@@ -9639,18 +9639,24 @@ footer.footer {
     background: rgba(105, 177, 196, 0.1); }
   .registry #content table.registry-table tbody td, .single-cpm-registry #content table.registry-table tbody td, .registry-advanced #content table.registry-table tbody td {
     min-width: 200px; }
-
-.registry .validations, .single-cpm-registry .validations, .registry-advanced .validations {
-  padding: 15px;
-  border: 1px #52595e solid;
-  font-size: .75rem; }
-  .registry .validations h3, .single-cpm-registry .validations h3, .registry-advanced .validations h3 {
-    text-align: center;
-    font-size: 1.25rem; }
-  .registry .validations label, .single-cpm-registry .validations label, .registry-advanced .validations label {
-    margin-right: 10px; }
-  .registry .validations table, .single-cpm-registry .validations table, .registry-advanced .validations table {
-    margin: 0; }
+  .registry #content .validations, .single-cpm-registry #content .validations, .registry-advanced #content .validations {
+    padding: 15px;
+    border: 1px #52595e solid;
+    font-size: .75rem; }
+    .registry #content .validations h3, .single-cpm-registry #content .validations h3, .registry-advanced #content .validations h3 {
+      text-align: center;
+      font-size: 1.25rem; }
+    .registry #content .validations label, .single-cpm-registry #content .validations label, .registry-advanced #content .validations label {
+      margin-right: 10px;
+      font-weight: 600; }
+    .registry #content .validations table, .single-cpm-registry #content .validations table, .registry-advanced #content .validations table {
+      margin: 0; }
+      .registry #content .validations table thead th, .single-cpm-registry #content .validations table thead th, .registry-advanced #content .validations table thead th {
+        font-weight: 600;
+        padding: 0; }
+      .registry #content .validations table tbody td, .single-cpm-registry #content .validations table tbody td, .registry-advanced #content .validations table tbody td {
+        border-right: 1px #fff solid;
+        padding: 5px; }
 
 @media (min-width: 992px) {
   .registry #content, .registry .facetwp-type-fselect, .single-cpm-registry #content, .single-cpm-registry .facetwp-type-fselect, .registry-advanced #content, .registry-advanced .facetwp-type-fselect {

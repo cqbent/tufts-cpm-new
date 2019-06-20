@@ -149,6 +149,25 @@
             "layout": "vertical",
             "return_format": "value",
             "save_other_choice": 0
+        },
+        {
+            "key": "field_5d0bb0f96896d",
+            "label": "Relatedness",
+            "name": "relatedness",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         }
     ],
     "location": [
@@ -168,5 +187,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1560914802
+    "modified": 1561047320
 }
