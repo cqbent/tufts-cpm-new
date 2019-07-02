@@ -4,7 +4,8 @@ $filter_list = array(
 	'outcome',
 	'year',
 	'secondary_index_condition',
-)
+);
+$page_path = $_SERVER['REQUEST_URI'];
 ?>
 
 <div class="filters">
@@ -28,4 +29,10 @@ $filter_list = array(
   </div>
 	<?php do_shortcode('[facetwp pager="true"]'); ?>
 	<?php do_shortcode('[facetwp counts="true"]'); ?>
+    <?php
+    if (strstr($page_path, 'registry/')) {
+	    ?><a href="/registry" class="btn btn-primary">Reset</a><?php
+    }
+    ?>
+
 </div>

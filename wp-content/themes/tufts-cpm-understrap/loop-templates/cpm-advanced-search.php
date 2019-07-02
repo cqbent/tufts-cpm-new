@@ -1,13 +1,13 @@
 <?php
   $field_filters = array(
+	    'Keyword' => 'keyword',
       'Model ID' => 'model_id',
       'Outcome' => 'outcome',
       'Index Condition' => 'primary_index_condition',
       'Secondary Condition' => 'secondary_index_condition',
       'Author' => 'author',
       'Journal' => 'journal',
-      'Covariates' => 'covariates',
-      'Keyword' => 'keyword'
+      'Covariates' => 'covariates'
   );
   $compare_filters = array('AND','OR','NOT');
 ?>

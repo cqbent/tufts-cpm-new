@@ -14,7 +14,7 @@ if ($query->have_posts()) {
 	    ?>
     </div>
     <div class="col-md-9">
-      <h3>Your search returned <span class="facetwp-counts"></span> results</h3>
+      <h3>You have <span class="facetwp-counts"></span> individual de novo models that have been returned based on your search parameters</h3>
         <?php
         include(locate_template('loop-templates/registry-table.php', false, FALSE));
         ?>

@@ -84,7 +84,7 @@ get_template_part( 'loop-templates/parent', 'header' );
                           <label>Externally Validated</label><span>Yes</span>
                         </div>
                         <div>
-                          <label>Number of External Validations</label><span><?php print $validations['extval']; ?></span>
+                          <label>Number of External Validations</label><span><?php print $validations['count']; ?></span>
                         </div>
                         <?php
                       }

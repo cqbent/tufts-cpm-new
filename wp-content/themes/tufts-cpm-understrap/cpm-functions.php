@@ -140,6 +140,15 @@ add_filter( 'facetwp_is_main_query', function( $bool, $query ) {
 	return ( true === $query->get( 'facetwp' ) ) ? true : $bool;
 }, 10, 2 );
 
+/*
+ * alter Facetwp results count text
+ */
+add_filter( 'facetwp_result_count', function( $output, $params ) {
+	$output = $params['total'];
+	//$output = $params['lower'] . '-' . $params['upper'] . ' of ' . $params['total'] . ' results';
+	return $output;
+}, 10, 2 );
+
 function cpm_registry($type = 'basic') {
 	if ($type == 'advanced') {
 		cpm_advanced_search();
