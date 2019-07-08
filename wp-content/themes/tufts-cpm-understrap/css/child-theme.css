@@ -9570,6 +9570,8 @@ footer.footer {
     margin: 0; }
     #content .content-list .entry-title a {
       color: #0081C9; }
+  #content .modal .tableauPlaceholder, #content .modal .tableauViz {
+    height: 600px !important; }
 
 /* registry list and detail styling */
 .registry #content, .registry-advanced #content {

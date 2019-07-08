@@ -35,6 +35,45 @@ get_template_part( 'loop-templates/parent', 'header' );
 
             <?php print get_field('tableau_embed'); ?>
 
+            <?php
+            $embeds = get_field('tableau_embeds');
+            if ($embeds) {
+	            $links = '';
+	            $row = 0;
+	            ?>
+              <div class="multiple-embed-list">
+                <h3>Additional Visualizations</h3>
+              <?php
+              foreach ($embeds as $embed) {
+                $row++;
+	              $title = $embed['tableau_embed_title'];
+	              $embed_field = $embed['tableau_embed_field'];
+	              ?>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#embed<?php print $row; ?>">
+                  <?php print $title; ?></button>
+
+                <div class="modal fade" id="embed<?php print $row; ?>" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-lg" role="document" >
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="ModalLabel"><?php print $title; ?></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+			                  <?php print $embed_field; ?>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <?php
+              }
+              ?></div><?php
+            }
+            ?>
+
           </div><!-- .entry-content -->
 
 				<?php endwhile; // end of the loop. ?>
