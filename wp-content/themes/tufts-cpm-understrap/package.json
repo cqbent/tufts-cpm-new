@@ -28,7 +28,7 @@
     "browser-sync": "^2.18.6",
     "del": "^2.2.2",
     "font-awesome": "^4.7.0",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-clone": "^1.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-cssnano": "^2.1.2",
@@ -45,7 +45,7 @@
     "owl.carousel": "^2.2.0",
     "run-sequence": "^1.2.2",
     "tableexport": "^5.2.0",
-    "understrap": "^0.5.4",
+    "understrap": "^1.0.1",
     "undescores-for-npm": "^1.0.0"
   }
 }
